@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Home, Bird, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./theme-toggle";
 
 const navLinks = [
   { href: "/", label: "Home", icon: Home },
@@ -38,6 +39,9 @@ export function Sidebar() {
           );
         })}
       </nav>
+      <div className="mt-auto p-4 border-t">
+        <ThemeToggle />
+      </div>
     </div>
   );
 }
