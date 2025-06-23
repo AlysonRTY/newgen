@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Bird, User } from "lucide-react";
+import { Home, Bird, User, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/", label: "Home", icon: Home },
   { href: "/ducks", label: "Ducks", icon: Bird },
   { href: "/about", label: "About Me", icon: User },
+  { href: "/projects", label: "Projects", icon: Briefcase },
 ];
 
 export function Sidebar() {
