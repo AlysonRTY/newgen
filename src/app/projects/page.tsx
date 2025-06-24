@@ -1,13 +1,6 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Github } from "lucide-react";
 
 const projects = [
   {
@@ -49,47 +42,60 @@ export default function ProjectsPage() {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 space-y-8">
         {projects.map((project) => (
-          <Card key={project.title}>
-            <CardHeader>
-              <CardTitle>{project.title}</CardTitle>
-              <CardDescription>{project.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
+          <div
+            key={project.title}
+            className="group relative rounded-lg border border-gray-200/80 p-6 transition-all hover:border-transparent hover:shadow-lg dark:border-gray-800/80 dark:hover:shadow-black/20"
+          >
+            <div className="absolute inset-0 rounded-lg bg-gray-50 opacity-0 transition-opacity group-hover:opacity-100 dark:bg-gray-900/50"></div>
+            <div className="relative">
+              <div className="flex flex-col justify-between md:flex-row md:items-start">
+                <div className="mb-4 space-y-2 md:mb-0">
+                  <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-gray-50">
+                    {project.title}
+                  </h3>
+                  <p className="max-w-xl text-gray-500 dark:text-gray-400">
+                    {project.description}
+                  </p>
+                </div>
+                <div className="flex flex-shrink-0 items-center gap-2">
+                  {project.github && (
+                    <Button asChild variant="outline" size="sm">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Github className="h-4 w-4" />
+                        GitHub
+                      </a>
+                    </Button>
+                  )}
+                  {project.live && (
+                    <Button asChild size="sm">
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              </div>
+
+              <div className="mt-4 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
-                  <Badge key={tag} variant="outline">
+                  <Badge key={tag} variant="secondary">
                     {tag}
                   </Badge>
                 ))}
               </div>
-            </CardContent>
-            <CardFooter className="flex justify-end gap-2">
-              {project.github && (
-                <Button asChild variant="outline">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub
-                  </a>
-                </Button>
-              )}
-              {project.live && (
-                <Button asChild>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live Demo
-                  </a>
-                </Button>
-              )}
-            </CardFooter>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
     </div>
