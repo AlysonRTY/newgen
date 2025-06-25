@@ -10,6 +10,7 @@ import { ThemeToggle } from "./theme-toggle";
 const navLinks = [
   { href: "/", label: "Home", icon: Home },
   { href: "/ducks", label: "Ducks", icon: Bird },
+  { href: "/ducks/funniest", label: "Funniest Duck", icon: Bird },
   { href: "/about", label: "About Me", icon: User },
   { href: "/projects", label: "Projects", icon: Briefcase },
 ];
