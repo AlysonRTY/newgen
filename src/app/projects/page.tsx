@@ -42,14 +42,14 @@ export default function ProjectsPage() {
         </p>
       </div>
 
-      <div className="mt-12 space-y-8">
+      <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project) => (
           <div
             key={project.title}
-            className="group relative rounded-lg border border-gray-200/80 p-6 transition-all hover:border-transparent hover:shadow-lg dark:border-gray-800/80 dark:hover:shadow-black/20"
+            className="group relative flex flex-col rounded-lg border border-gray-200/80 transition-all hover:border-transparent hover:shadow-lg dark:border-gray-800/80 dark:hover:shadow-black/20"
           >
             <div className="absolute inset-0 rounded-lg bg-gray-50 opacity-0 transition-opacity group-hover:opacity-100 dark:bg-gray-900/50"></div>
-            <div className="relative">
+            <div className="relative flex flex-grow flex-col p-6">
               <div className="flex flex-col justify-between md:flex-row md:items-start">
                 <div className="mb-4 space-y-2 md:mb-0">
                   <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-gray-50">
@@ -87,12 +87,14 @@ export default function ProjectsPage() {
                 </div>
               </div>
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">
-                    {tag}
-                  </Badge>
-                ))}
+              <div className="mt-auto pt-4">
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <Badge key={tag} variant="secondary">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
