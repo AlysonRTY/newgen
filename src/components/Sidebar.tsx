@@ -2,7 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Bird, User, Briefcase, Mail, Terminal } from "lucide-react";
+import {
+  Home,
+  Bird,
+  User,
+  Briefcase,
+  Mail,
+  Terminal,
+  Info,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
@@ -10,6 +18,7 @@ import { ThemeToggle } from "./theme-toggle";
 const navLinks = [
   { href: "/", label: "Home", icon: Home },
   { href: "/ducks", label: "Ducks", icon: Bird },
+  { href: "/ducks/facts", label: "Duck Facts", icon: Info },
   { href: "/about", label: "About Me", icon: User },
   { href: "/projects", label: "Projects", icon: Briefcase },
   { href: "/uses", label: "Uses", icon: Terminal },
